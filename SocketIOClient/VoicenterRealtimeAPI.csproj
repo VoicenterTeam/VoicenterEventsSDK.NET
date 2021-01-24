@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{495F757F-92AA-4E8E-BE3B-4BE4D2FA310E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VoicenterRealtimeAPI</RootNamespace>
+    <AssemblyName>VoicenterRealtimeAPI</AssemblyName>
+    <TargetFramework>net452</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <UserSecretsId>cc92dc93-9c0d-47f0-86cc-19541f4bcc54</UserSecretsId>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SocketIOClient" Version="2.1.2" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    <Reference Include="System" />
+      <Reference Include="System.Configuration" />
+      <Reference Include="System.Core" />
+      <PackageReference Include="System.Net.WebSockets.Client.Managed" Version="1.0.22.0" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.ServiceModel" />
+        <Reference Include="System.Transactions" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.Extensions" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Login\Account.cs" />
+    <Compile Include="Login\Base\LoginBase.cs" />
+    <Compile Include="Login\Token.cs" />
+    <Compile Include="Login\User.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VoicenterRealtimeListener.cs" />
+    <Compile Include="VoicenterRealtimeLogger.cs" />
+    <Compile Include="VoicenterRealtimeResponseArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>

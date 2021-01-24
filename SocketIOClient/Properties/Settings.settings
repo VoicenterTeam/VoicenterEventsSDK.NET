@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VoicenterRealtimeAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://loginapi.voicenter.co.il/monitorAPI/Login/User</Value>
+    </Setting>
+    <Setting Name="AccountUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://loginapi.voicenter.co.il/monitorAPI/Login/Account</Value>
+    </Setting>
+    <Setting Name="TokenUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://loginapi.voicenter.co.il/monitorAPI/Login/Token</Value>
+    </Setting>
+    <Setting Name="RefreshTokenUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://loginapi.voicenter.co.il/monitorAPI/RefreshIdentityToken</Value>
+    </Setting>
+    <Setting Name="KeepAliveInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+    <Setting Name="ReconnectionAttempts" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Reconnection" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ReconnectionDelay" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4000</Value>
+    </Setting>
+    <Setting Name="monitorURI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://monitor5.voicenter.co.il</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
