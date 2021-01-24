@@ -13,11 +13,19 @@
     <TargetFrameworkProfile />
     <UserSecretsId>cc92dc93-9c0d-47f0-86cc-19541f4bcc54</UserSecretsId>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <PackageId>VoicenterEventsSDK.NET</PackageId>
+    <Authors>Tzachish</Authors>
+    <Company>Voicenter</Company>
+    <Product>VoicenterEventsSDK</Product>
+    <Description>Voicenter Events SDK aims to manage API and socket communication with Voicenter APIs and backends. You can use the SDK to send and receive real-time data from and to voicenter servers.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Socket, Monitor, Voicenter, SDK</PackageTags>
+    <RepositoryUrl>https://github.com/VoicenterTeam/VoicenterEventsSDK.NET.git</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SocketIOClient" Version="2.1.2" />
     <PackageReference Include="System.Buffers" Version="4.5.1" />
-    <PackageReference Include="System.Collections" Version="4.3.0" />
     <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     <Reference Include="System" />
       <Reference Include="System.Configuration" />
@@ -29,11 +37,8 @@
         <Reference Include="System.Transactions" />
         <Reference Include="System.Web" />
         <Reference Include="System.Web.Extensions" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="System.Data.DataSetExtensions" />
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Login\Account.cs" />
@@ -45,6 +50,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="VoicenterRealtime.cs" />
     <Compile Include="VoicenterRealtimeListener.cs" />
     <Compile Include="VoicenterRealtimeLogger.cs" />
     <Compile Include="VoicenterRealtimeResponseArgs.cs" />

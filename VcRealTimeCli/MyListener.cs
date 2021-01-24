@@ -1,19 +1,14 @@
-﻿
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VoicenterRealtimeAPI;
 
-namespace VoicenterRealtime.Listener
+namespace VcRealTimeCli
 {
     class MyListener
     {
         private void OnEventHandler(object sender, VoicenterRealtimeResponseArgs e)
         {
-            var voicenterRealtimeListener = (sender as VoicenterRealtimeListener);
+            var voicenterRealtimeListener = sender as VoicenterRealtimeListener;
             switch (e.Name)
             {
                 // Connected to monitor

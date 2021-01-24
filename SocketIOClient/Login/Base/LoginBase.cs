@@ -95,6 +95,14 @@ namespace VoicenterRealtimeAPI.Login.Base
             }
             catch (WebException e)
             {
+
+                VoicenterRealtimeLogger logger = new VoicenterRealtimeLogger();
+                logger.ex = e;
+                logger.message = $"Error on login";
+                logger.level = LogLevel.Fatal;
+                Logger.log(this, logger);
+
+
                 if (e.Status == WebExceptionStatus.ProtocolError)
                 {
                     HttpWebResponse response = (HttpWebResponse)e.Response;
@@ -156,6 +164,12 @@ namespace VoicenterRealtimeAPI.Login.Base
                 }
                 catch (WebException e)
                 {
+                    VoicenterRealtimeLogger logger = new VoicenterRealtimeLogger();
+                    logger.ex = e;
+                    logger.message = $"Error on refreshToken";
+                    logger.level = LogLevel.Fatal;
+                    Logger.log(this, logger);
+
                     if (e.Status == WebExceptionStatus.ProtocolError)
                     {
                         HttpWebResponse response = (HttpWebResponse)e.Response;

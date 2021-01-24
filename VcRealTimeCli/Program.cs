@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VoicenterRealtime.Listener;
+using VcRealTimeCli;
 using VoicenterRealtimeAPI;
-using VoicenterRealtimeAPI.Login;
 
 class MainClass
 {
@@ -20,10 +19,13 @@ class MainClass
         public static void Main(string[] args)
         {
 
-        Logger.onLog += OnLogHandler;
+        
         try
-        {
+        {   
             initSocketCli();
+
+            
+            Console.WriteLine("dasdsa");
         }
         catch(Exception e)
         {
@@ -35,7 +37,11 @@ class MainClass
 
 
     }
-    public static void initSocketCli() {
+    public static void initSocketCli()
+    {
+
+        VoicenterRealtime voicenterRealtime = new VoicenterRealtime(LogLevel.Info);
+        Logger.onLog += OnLogHandler;
 
         var values = EnumUtil.GetValues<Identity>();
 
@@ -46,28 +52,28 @@ class MainClass
 
         Console.Write("Choose you Login Identity:");
         Lidentity = Console.ReadLine();
+        var Method = typeof(VoicenterRealtime).GetMethod(((Identity)int.Parse(Lidentity)).ToString());
+        PrintClassParamters(Method);
+
         switch ((Identity)int.Parse(Lidentity))
         {
             case Identity.Account:
                 {
-                    PrintClassParamters(typeof(Account).GetConstructors()[0]);
-                    socket = new Account(paramterArray[0], paramterArray[1]).Init();
 
+                    voicenterRealtime.Account(paramterArray[0], paramterArray[1]).Init();
 
                     break;
                 }
             case Identity.User:
                 {
-                    PrintClassParamters(typeof(User).GetConstructors()[0]);
-                    socket = new User(paramterArray[0], paramterArray[1]).Init();
+                    socket = voicenterRealtime.User(paramterArray[0], paramterArray[1]).Init();
                     break;
                 }
             case Identity.Token:
-                PrintClassParamters(typeof(Token).GetConstructors()[0]);
-                socket = new Token(paramterArray[0]).Init();
-
+                    socket = voicenterRealtime.Token(paramterArray[0]).Init();
+                    break;
+            default: 
                 break;
-            default: break;
         }
 
         MyListener listen = new MyListener(socket);
