@@ -8,7 +8,7 @@ namespace VoicenterRealtimeAPI
 {
     public class VoicenterRealtimeResponseArgs : EventArgs
     {
-        public string Name { get; set; }
+        public EventTypes Name { get; set; }
         public object Data { get; set; }
         public string Id { get; set; }
 

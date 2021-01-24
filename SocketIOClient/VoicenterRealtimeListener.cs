@@ -16,6 +16,12 @@ namespace VoicenterRealtimeAPI
     
     
     public enum ListenerStatus { Connected, Disconnected, Reconnecting }
+    public enum EventTypes 
+    {   CONNECTED, DISCONNECTED, RECONNECTING, 
+        CONNECT_ERROR, loginSuccess, loginStatus, AllExtensionsStatus, 
+        ExtensionEvent, QueueEvent, ExtensionsUpdated, QueuesUpdated, 
+        keepaliveResponse, TokenRefreshed 
+    }
 
 
 
@@ -104,7 +110,7 @@ namespace VoicenterRealtimeAPI
             }
             this.UpdateMonitorUriList(uriList);
             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-            res.Name = "TokenRefreshed";
+            res.Name = EventTypes.TokenRefreshed;
             res.Data = this.Token;
             OnEvent(this, res);
             Reconnect();
@@ -236,7 +242,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "loginStatus";
+                            res.Name = EventTypes.loginStatus;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
                         }
@@ -250,7 +256,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "AllExtensionsStatus";
+                            res.Name = EventTypes.AllExtensionsStatus;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
                         }
@@ -265,7 +271,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "ExtensionEvent";
+                            res.Name = EventTypes.ExtensionEvent;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
                         }
@@ -280,7 +286,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "loginSuccess";
+                            res.Name = EventTypes.loginSuccess;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
                         }
@@ -294,7 +300,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "QueueEvent";
+                            res.Name = EventTypes.QueueEvent;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
                         }
@@ -310,7 +316,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "ExtensionsUpdated";
+                            res.Name = EventTypes.ExtensionsUpdated;
                             res.Data = data.GetValue<Object>();
                             this.Resync(false);
                             OnEvent(this, res);
@@ -325,7 +331,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "QueuesUpdated";
+                            res.Name = EventTypes.QueuesUpdated;
                             res.Data = data.GetValue<Object>();
                             this.Resync(false);
                             OnEvent(this, res);
@@ -340,7 +346,7 @@ namespace VoicenterRealtimeAPI
                         if (this.OnEvent != null)
                         {
                             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                            res.Name = "keepaliveResponse";
+                            res.Name = EventTypes.keepaliveResponse;
                             this.LastKeepAliveEvent = DateTime.UtcNow;
                             res.Data = data.GetValue<Object>();
                             OnEvent(this, res);
@@ -372,7 +378,7 @@ namespace VoicenterRealtimeAPI
                     if (OnEvent != null)
                     {
                         VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
-                        res.Name = "CONNECTED";
+                        res.Name = EventTypes.CONNECTED;
                         res.Id = socket.Id;
                         SocketServerUri = socket.ServerUri;
                         this.LastKeepAliveEvent = DateTime.UtcNow;
@@ -411,7 +417,7 @@ namespace VoicenterRealtimeAPI
                         
                         
                     }
-                    res.Name = "DISCONNECTED";
+                    res.Name = EventTypes.DISCONNECTED;
 
                     SocketServerUri = socket.ServerUri;
                     OnEvent(this, res);
@@ -435,7 +441,7 @@ namespace VoicenterRealtimeAPI
             VoicenterRealtimeResponseArgs res = new VoicenterRealtimeResponseArgs();
             if (this.Reconnection)
             {
-                res.Name = "RECONNECTING";
+                res.Name = EventTypes.RECONNECTING;
                 this.ListenerStatus = ListenerStatus.Reconnecting;
                 await this.StopListenning();
                 SocketServerUri = this.currentMonitorURI;

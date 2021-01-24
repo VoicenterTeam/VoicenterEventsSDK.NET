@@ -12,30 +12,30 @@ namespace VcRealTimeCli
             switch (e.Name)
             {
                 // Connected to monitor
-                case "CONNECTED":
+                case EventTypes.CONNECTED:
                     Console.WriteLine(e.Name + " to " + voicenterRealtimeListener?.SocketServerUri?.ToString());
                     //Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
                 // Disconnected from monitor
-                case "DISCONNECTED":
+                case EventTypes.DISCONNECTED:
                     Console.WriteLine(e.Name + " to " + voicenterRealtimeListener?.SocketServerUri?.ToString());
                     break;
-                case "RECONNECTING":
+                case EventTypes.RECONNECTING:
                     Console.WriteLine(e.Name + " to " + voicenterRealtimeListener?.SocketServerUri?.ToString());
                     break;
                 // Failed connecting to monitor
-                case "CONNECT_ERROR":
+                case EventTypes.CONNECT_ERROR:
                     break;
                 // When first connected, received current status of all queues
-                case "loginSuccess":
+                case EventTypes.loginSuccess:
                     var z = ((JObject)e.Data).ToObject(typeof(AllQueueEvents));
 
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
-                case "loginStatus":
+                case EventTypes.loginStatus:
                     var a = ((JObject)e.Data).ToObject(typeof(AllQueueEvents));
 
                     Console.WriteLine(e.Name);
@@ -43,42 +43,42 @@ namespace VcRealTimeCli
                     Console.WriteLine("---------------------------");
                     break;
                 // When first connected, received current status of all extensions
-                case "AllExtensionsStatus":
+                case EventTypes.AllExtensionsStatus:
                     var b = ((JObject)e.Data).ToObject(typeof(AllExtensionEvents));
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
                 // An update received (for example: new call, or hangup)
-                case "ExtensionEvent":
+                case EventTypes.ExtensionEvent:
                     var c = ((JObject)e.Data).ToObject(typeof(ExtensionEvent));
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
                 // An update received (for example: new call in queue, or call exited queue)
-                case "QueueEvent":
+                case EventTypes.QueueEvent:
                     var d = ((JObject)e.Data).ToObject(typeof(QueueEvent));
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
-                case "ExtensionsUpdated":
+                case EventTypes.ExtensionsUpdated:
                     Console.WriteLine(e.Name);
                     //Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
-                case "QueuesUpdated":
+                case EventTypes.QueuesUpdated:
                     Console.WriteLine(e.Name);
                     //Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
-                case "keepaliveResponse":
+                case EventTypes.keepaliveResponse:
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");
                     break;
-                case "TokenRefreshed":
+                case EventTypes.TokenRefreshed:
                     Console.WriteLine(e.Name);
                     Console.WriteLine(e.Data);
                     Console.WriteLine("---------------------------");

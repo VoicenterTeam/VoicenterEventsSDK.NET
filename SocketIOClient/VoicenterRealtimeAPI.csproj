@@ -22,6 +22,7 @@
     <PackageTags>Socket, Monitor, Voicenter, SDK</PackageTags>
     <RepositoryUrl>https://github.com/VoicenterTeam/VoicenterEventsSDK.NET.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SocketIOClient" Version="2.1.2" />
