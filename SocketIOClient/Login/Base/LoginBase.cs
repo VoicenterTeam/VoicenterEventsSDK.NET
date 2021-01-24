@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 
 namespace VoicenterRealtimeAPI.Login.Base
 {
-    public  enum Identity { Account = 1, User, Token };
+    public enum Identity { Account = 1, User, Token };
     public enum LoginError { OK = 0, RequestFailed, WrongLoginDetails, NoMonitor }
     public abstract class LoginBase
     {

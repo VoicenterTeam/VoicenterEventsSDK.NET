@@ -59,9 +59,7 @@ class MainClass
         {
             case Identity.Account:
                 {
-
-                    voicenterRealtime.Account(paramterArray[0], paramterArray[1]).Init();
-
+                    socket = voicenterRealtime.Account(paramterArray[0], paramterArray[1]).Init();
                     break;
                 }
             case Identity.User:
